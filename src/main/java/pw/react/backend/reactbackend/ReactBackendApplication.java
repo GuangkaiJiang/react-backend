@@ -1,13 +1,23 @@
 package pw.react.backend.reactbackend;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class ReactBackendApplication {
+import pw.react.backend.reactbackend.repo.UserRepository;
 
-	public static void main(String[] args) {
+@SpringBootApplication
+public class ReactBackendApplication implements CommandLineRunner{
+
+	@Autowired
+    UserRepository repository;
+	
+	public static void main(String[] args){
 		SpringApplication.run(ReactBackendApplication.class, args);
 	}
 
+	@Override
+	public void run(String... arg0) throws Exception {
+	}
 }

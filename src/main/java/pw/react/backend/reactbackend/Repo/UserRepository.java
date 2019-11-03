@@ -1,12 +1,11 @@
-package pw.react.backend.reactbackend.Repo;
-
-
-import org.springframework.data.repository.CrudRepository;
-import pw.react.backend.reactbackend.entity.User;
+package pw.react.backend.reactbackend.repo;
 
 import java.util.List;
 
+import org.springframework.data.repository.CrudRepository;
+
+import pw.react.backend.reactbackend.entity.User;
+
 public interface UserRepository extends CrudRepository<User, Long>{
-	List<User> findByLastName(String lastName);
 	User findByLogin(String login);
 }
