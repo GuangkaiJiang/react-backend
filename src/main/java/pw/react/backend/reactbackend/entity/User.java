@@ -28,8 +28,8 @@ public class User implements Serializable {
 	@Column(name = "login")
 	private String login;
 
-	@Column(name = "birthofdate")
-	private Date birthOfDate;
+	@Column(name = "dateOfBirth")
+	private Date dateOfBirth;
 
 	@Column(name = "activestatus")
 	private boolean isActive;
@@ -38,11 +38,11 @@ public class User implements Serializable {
 	protected User() {
 	}
 
-	public User(@JsonProperty("firstName") String firstName, @JsonProperty("lastName")String lastName, @JsonProperty("login")String login, @JsonProperty("birthOfDate")Date birthOfDate, @JsonProperty("isActive")boolean isActive) {
+	public User(@JsonProperty("firstName") String firstName, @JsonProperty("lastName")String lastName, @JsonProperty("login")String login, @JsonProperty("dateOfBirth")Date dateOfBirth, @JsonProperty("isActive")boolean isActive) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.login=login;
-		this.birthOfDate=birthOfDate;
+		this.dateOfBirth=dateOfBirth;
 		this.isActive=isActive;
 	}
 	public long getId()
@@ -76,11 +76,11 @@ public class User implements Serializable {
 	}
 	public Date getDoB()
 	{
-		return birthOfDate;
+		return dateOfBirth;
 	}
-	public void setDoB(Date BoD)
+	public void setDoB(Date DoB)
 	{
-		this.birthOfDate=birthOfDate;
+		this.dateOfBirth=DoB;
 	}
 	public boolean getisActive() {
 		return isActive;
@@ -91,6 +91,6 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return String.format("User[id=%d, firstName='%s', lastName='%s',login='%s',birthOfDate='%s',isActive='%s']", id, firstName, lastName,login,birthOfDate,isActive);
+		return String.format("User[id=%d, firstName='%s', lastName='%s',login='%s',dateOfBirth='%s',isActive='%s']", id, firstName, lastName,login,dateOfBirth,isActive);
 	}
 }
