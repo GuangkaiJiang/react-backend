@@ -5,5 +5,5 @@ import org.springframework.http.ResponseEntity;
 import pw.react.backend.reactbackend.entity.User;
 
 public interface UserService {
-    ResponseEntity<String> checkUserByLogin(String login);
+    User checkUserByLogin(String login);
 }

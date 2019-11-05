@@ -35,7 +35,7 @@ public class User implements Serializable {
 	private boolean isActive;
 
 
-	protected User() {
+	public User() {
 	}
 
 	public User(@JsonProperty("firstName") String firstName, @JsonProperty("lastName")String lastName, @JsonProperty("login")String login, @JsonProperty("dateOfBirth")Date dateOfBirth, @JsonProperty("isActive")boolean isActive) {

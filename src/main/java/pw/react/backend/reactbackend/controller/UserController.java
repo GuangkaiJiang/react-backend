@@ -1,6 +1,11 @@
 package pw.react.backend.reactbackend.controller;
 import java.sql.Date;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
+import jdk.nashorn.internal.runtime.options.Option;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -46,22 +51,36 @@ public class    UserController {
 		repository.save(new User(user.getFirstName(),user.getLastName(),user.getLogin(), user.getDoB(),user.getisActive()));
 	}
 
-	@GetMapping("/id")
+	/*@GetMapping("/id")
 	public ResponseEntity<String> findById(@RequestParam("id") long id){
 		String result = repository.findOne(id).toString();
 		if(result.length()>0)
 			return ResponseEntity.ok().body(result);
 		return ResponseEntity.noContent().build();
+	}*/
+	@GetMapping("/id")
+	public User findById(@RequestParam("id") long id){
+		User result = repository.findOne(id);
+		if(result!=null)
+			return result;
+		return null;
 	}
 
-	@GetMapping("/login")
+	/*@GetMapping("/login")
 	public ResponseEntity<String> fetchDataByLogin(@RequestParam("login") String login){
 		String result = repository.findByLogin(login).toString();
 		if(result.length()>0)
 			return ResponseEntity.ok().body(result);
 		return ResponseEntity.ok().body("User with given ID do not exist");
-	}
+	}*/
+	@GetMapping("/login")
+	public User fetchDataByLogin(@RequestParam("login") String login){
+		User result = repository.findByLogin(login);
+		if(result!=null)
+			return result;
+		return null;
 
+	}
 	@PutMapping("/id")
 	public ResponseEntity<String> updateUser(@RequestParam("id") long id,@RequestBody User user)
 	{
